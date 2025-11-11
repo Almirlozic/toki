@@ -1,0 +1,146 @@
+---
+---
+
+<header>
+  <div class="logo">
+    <img src="public/logo.svg" alt="TÓKI logo" />
+  </div>
+
+  <nav id="nav">
+    <a href="/">HOME</a>
+    <a href="/cases">CASES</a>
+    <a href="/toki-flow">TOKI FLOW</a>
+    <a href="/toki-family">TOKI FAMILY</a>
+    <a href="/contact">LET’S GET IN TOUCH!</a>
+  </nav>
+
+  <div class="burger" id="burger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</header>
+
+<style>
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #23312B;
+    color: #D9B45E;
+    position: relative;
+    z-index: 100;
+    padding: 30px 20px;
+  }
+
+  .logo img {
+    width: 200px;
+    height: auto;
+  }
+
+  nav {
+    display: flex;
+    gap: 2rem;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #D9B45E;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: opacity 0.2s ease;
+  }
+
+  nav a:hover {
+    opacity: 0.7;
+  }
+
+  /* --- Burger menu base --- */
+  .burger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 28px;
+    height: 22px;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .burger span {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #D9B45E;
+    border-radius: 2px;
+    transition: all 0.35s ease;
+  }
+
+  .burger span:nth-child(1) {
+    top: 0;
+  }
+
+  .burger span:nth-child(2) {
+    top: 10px;
+  }
+
+  .burger span:nth-child(3) {
+    bottom: 0;
+  }
+
+  /* --- Animation: bliver til et kryds --- */
+  .burger.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 10px;
+  }
+
+  .burger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    bottom: 10px;
+  }
+
+  /* --- Mobil menu --- */
+  @media (max-width: 768px) {
+    nav {
+      display: none;
+      position: absolute;
+      top: 145px;
+      right: 0;
+      background: #23312B;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1.5rem 2rem;
+      border-top: 1px solid #D9B45E;
+      transition: all 0.3s ease;
+    }
+
+    nav.open {
+      display: flex;
+    }
+
+    .burger {
+      display: flex;
+    }
+    .logo img {
+      width: 100px;
+      height: auto;
+  }
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const burger = document.getElementById("burger");
+    const nav = document.getElementById("nav");
+
+    burger.addEventListener("click", () => {
+      burger.classList.toggle("active");
+      nav.classList.toggle("open");
+    });
+  });
+</script>
