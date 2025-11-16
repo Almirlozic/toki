@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Case from '../components/Case.astro';
+
+const url = "https://obflgqfgayjayvdomvln.supabase.co/rest/v1/cases?select=*&order=id.asc";
+const key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9iZmxncWZnYXlqYXl2ZG9tdmxuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMxNTYxNDgsImV4cCI6MjA3ODczMjE0OH0.2PF7mHE_rUWDOXNwtGRKLe9JxPHi3OeX3-zr4d1FVwE";
+
+const options = {
+  headers: {
+    apikey: key,
+    Authorization: `Bearer ${key}`,
+  },
+};
+
+
+const data = await fetch(url, options).then(res => res.json());
+console.log(data);
+
+---
+
+<Layout>
+    <h1>our cases</h1>
+<section class="grid">
+{data.length
+  ? data.map((product, index) => {
+      const isLarge = index === 4 || index === 9;
+      return (
+        <div style={isLarge ? "grid-column: span 2;" : ""}>
+          <Case data={product} class={isLarge ? "square" : ""} />
+        </div>
+      );
+    })
+  : <p>Ingen produkter fundet.</p>}
+
+</section>
+
+
+
+
+</Layout>
+
+<style>
+
+:root {
+  --bg: #22372F;
+  --gap: 2rem;
+}
+body{
+    background-color: var(--bg);
+}
+
+@media (min-width: 1024px) {
+ 
+    h1{
+        font-size: 3rem;
+        text-align: center;
+        margin: 100px 0;
+        color: #DEB959;
+    }
+    
+    .page {
+      background: var(--bg);
+      min-height: 100vh;
+      padding: 40px;
+      box-sizing: border-box;
+    }
+    
+    /* titel */
+    .title {
+      color: #DEB959;
+      text-align: center;
+      margin: 0 0 100px;
+      font-size: 4rem;
+    }
+    
+    .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    grid-auto-rows: auto;
+    }
+
+    .card.square {
+    aspect-ratio: 1 / 1;
+    }
+
+
+}
+
+
+
+
+
+
+</style>
