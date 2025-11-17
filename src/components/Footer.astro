@@ -1,0 +1,104 @@
+---
+
+---
+
+<footer>
+  <section class="footer_grid">
+    <section>
+      <h1 id="footer_title">Tóki</h1>
+    </section>
+    <section>
+      <h2 class="footer_service">INFORMATION</h2>
+      <p>Shipping and Delivery</p>
+      <p>Cookie Policy & Preferences</p>
+      <p>Our story</p>
+    </section>
+    <section>
+      <h2 class="footer_service">HELP</h2>
+      <p>Customer Service</p>
+      <p>Price Guarantee</p>
+      <p>Complaint</p>
+    </section>
+    <section id="contact">
+      <p>email: hello@toki.house</p>
+    </section>
+  </section>
+</footer>
+
+<style>
+  @font-face {
+    font-family: momo;
+    src: url(Momo_Trust_Display/MomoTrustDisplay-Regular.ttf);
+  }
+
+  @font-face {
+    font-family: instrument;
+    src: url(Instrument_Sans/static/InstrumentSans-Regular.ttf);
+  }
+
+  .footer_grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    align-items: start;
+    padding: 4rem 5rem;
+    gap: 2rem;
+  }
+
+  #footer_title {
+    font-family: momo, sans-serif;
+    font-size: 19rem;
+    color: rgba(225, 183, 73, 1);
+    margin: 0;
+    line-height: 1;
+  }
+
+  .footer_service {
+    font-family: momo;
+  }
+
+  p {
+    font-family: instrument;
+  }
+
+  body {
+    background-color: rgba(235, 229, 216, 1);
+    margin: 0;
+    padding: 0;
+  }
+
+  #contact {
+    grid-column: 2;
+    border: 2px solid rgba(225, 183, 73, 1);
+    border-radius: 50px;
+    padding: 0.5rem 1.5rem;
+    font-family: instrument, sans-serif;
+    background-color: rgba(235, 229, 216, 1);
+    position: relative;
+    bottom: 110px;
+    justify-self: center;
+  }
+
+  #contact p {
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .footer_grid {
+      grid-template-columns: 1fr;
+      padding: 2rem;
+      gap: 1.5rem;
+      text-align: center;
+    }
+
+    #contact {
+      grid-column: auto;
+      bottom: 0;
+      justify-self: center;
+      margin-top: 1rem;
+    }
+
+    #footer_title {
+      font-size: 10rem;
+    }
+  }
+</style>
