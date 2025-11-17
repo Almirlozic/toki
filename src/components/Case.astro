@@ -3,8 +3,10 @@
 const { data } = Astro.props;
 ---
 
-<a href="">
 
+
+
+<a href={`/case/${data.id}`}>
     <article class="card">
       <div class="img-wrap">
         <img src={`https://obflgqfgayjayvdomvln.supabase.co/storage/v1/object/public/images/${data.image}`} alt={data.title ?? data.image} />
@@ -16,6 +18,7 @@ const { data } = Astro.props;
       </div>
     </article>
 </a>
+
 
 <style>
 .card {
@@ -61,5 +64,8 @@ const { data } = Astro.props;
   margin: 6px 0 0 0;
   color: #DEB959;
   font-size: 0.9rem;
+}
+a{
+    text-decoration: none;
 }
 </style>
