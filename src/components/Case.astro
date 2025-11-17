@@ -3,7 +3,7 @@
 const { data } = Astro.props;
 ---
 
-<a href="">
+<a href=`/case/${data.id}`>
 
     <article class="card">
       <div class="img-wrap">
@@ -24,7 +24,6 @@ const { data } = Astro.props;
   gap: 12px;
   background: transparent;
   border-radius: 12px;
-  padding: 0;
 }
 
 
@@ -45,9 +44,6 @@ const { data } = Astro.props;
   object-fit: contain;        
   display: block;
 }
-
-
-
 .meta{
     margin: 0px 5px;
 }
@@ -61,5 +57,8 @@ const { data } = Astro.props;
   margin: 6px 0 0 0;
   color: #DEB959;
   font-size: 0.9rem;
+}
+a{
+  text-decoration: none;
 }
 </style>

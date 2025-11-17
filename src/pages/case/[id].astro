@@ -34,22 +34,22 @@ const [post] = await res.json();
 <!-- singelview html -->
 <Layout>
     <section class="grid">
-        <img src={`https://obflgqfgayjayvdomvln.supabase.co/storage/v1/object/public/images/${post.image}`} alt={post.title} />
-        <div>
-            <h1 class="title">{post.title}</h1>
-            <p>{post.description}</p>
-     <svg
-    class="wave"
-    viewBox="0 0 1440 320"
-    xmlns="http://www.w3.org/2000/svg"
-    preserveAspectRatio="none"
-  >
-    <path
-      fill="#F2EADA"
-      d="M-15,224L1,197.3C160,171,320,117,480,117.3C640,117,800,171,960,176C1120,181,1280,139,1360,117.3L1440,96V320H1360C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320H0Z"
-    ></path>
-  </svg>
-        </div>  
+      <img src={`https://obflgqfgayjayvdomvln.supabase.co/storage/v1/object/public/images/${post.image}`} alt={post.title} />
+      <div>
+        <h1 class="title">{post.title}</h1>
+        <p>{post.description}</p>
+        <svg
+        class="wave"
+        viewBox="0 0 1440 320"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        >
+        <path
+        fill="#F2EADA"
+        d="M-15,224L1,197.3C160,171,320,117,480,117.3C640,117,800,171,960,176C1120,181,1280,139,1360,117.3L1440,96V320H1360C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320H0Z"
+        ></path>
+      </svg>
+    </div>  
     </section>
     <section>
       <div class="case-info">
@@ -68,35 +68,116 @@ const [post] = await res.json();
         <h2>the case</h2>
         <p>This client has gone through all stages of our Tóki Flow process together with us. Together, we have created a product that is not only sustainable but also combines functionality, aesthetics, and high quality. The result is a solution that reflects the client’s values, meets user needs, and contributes positively to the environment.</p>
       </div>
-
-
     </section>
 </Layout>
 
 
 <style>
-  body{
-    height: 1000px;
-    background-color: #F2EADA;
-    background-image: url(/public/hejehj.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-position-y: 850px;
-    background-size: 300px;
+   body{
+  height: 1000px;
+  background-color: #F2EADA;
+  background-image: url(/public/hejehj.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: 1000px;
+  background-size: 300px;
   }
+/* grid layout mobilversion */  
+  .grid {
+  display: flex;
+  flex-direction: column;
+  background-color: #22372F;
+}
+
+.grid img {
+  width: 80%;
+  height: auto;
+  max-height: 200px;
+  object-fit: contain;
+  border-radius: 20px 60px 20px 60px;
+  background-color: #F5EEDE;
+  z-index: 1;
+  order: 2;
+
+  display: block;     /* vigtigt */
+  margin: 0 auto;     /* centrerer billedet */
+}
+
+
+.grid div {
+  color: #DEB959;
+  text-align: center;
+  line-height: 1.5;
+  padding: 25px;
+  order: 1;
+}
+/* svg mobil version */
+ .wave {
+    position: absolute;
+    bottom: 100px;
+    left: 0;
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    line-height: 0;
+    margin-top: 100px;
+  }
+  .wave svg {
+    position: relative;
+    display: block;
+    width: calc(200% + 1.3px);
+    height: 100%;
+  }
+section {
+  display: flex;
+  width: 100%;
+  justify-content: center; /* centrer indhold */
+}
+
+.case-info {
+  max-width: 200px;  /* gør boksen smallere */
+  width: 90%;
+  margin-top: 60px;
+  padding: 30px;
+  line-height: 1.5;
+}
+
+/* Ulige sektioner → højre */
+section:nth-of-type(odd) .case-info {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* Lige sektioner → venstre */
+section:nth-of-type(even) .case-info {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+
+
+
 
 @media (min-width: 1024px) {
+  body{
+  height: 1000px;
+  background-color: #F2EADA;
+  background-image: url(/public/hejehj.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-y: 650px;
+  background-size: 300px;
+  }
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 5rem;
-  padding: 100px;
   align-items: start;
   background-color: #22372F;
 }
  .wave {
     position: absolute;
-    bottom: -10px;
+    bottom: 190px;
     left: 0;
     width: 100%;
     height: 180px;
@@ -123,6 +204,8 @@ const [post] = await res.json();
     border-radius: 20px 60px 20px 60px; 
     background-color: #F5EEDE; 
     z-index: 1;
+    order: unset;
+    margin: 0 40px;
 }
 
 
@@ -131,6 +214,7 @@ const [post] = await res.json();
     flex-direction: column;
     justify-content: center;
     gap: 1rem;
+    order: unset;
   }
 
   .title {
@@ -148,7 +232,6 @@ const [post] = await res.json();
   max-width: 500px; 
   width: 100%;        
   padding: 2rem 1rem; 
-  margin: 0 100px;
 }
 
   .case-info p{
