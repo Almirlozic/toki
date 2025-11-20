@@ -1,0 +1,352 @@
+---
+
+---
+
+<!-- html til kortene -->
+<section class="cards-section">
+  <div class="cards">
+    <div class="card" data-card="1">
+      <span class="card-number">1</span>
+      <p>We start by understanding your reality.</p>
+    </div>
+
+    <div class="card" data-card="2">
+      <span class="card-number">2</span>
+      <p>We shape your design DNA.</p>
+    </div>
+
+    <div class="card" data-card="3">
+      <span class="card-number">3</span>
+      <p>We make ideas tangible.</p>
+    </div>
+
+    <div class="card" data-card="4">
+      <span class="card-number">4</span>
+      <p>We bring your solution to market — ready to make an impact.</p>
+    </div>
+
+    <div class="card" data-card="5">
+      <span class="card-number">5</span>
+      <p>We scale together.</p>
+    </div>
+  </div>
+
+  <!-- ======================================================
+         MODAL (åbnes når man klikker på et kort)
+    ======================================================= -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <button id="modal-close" class="close-btn">✕</button>
+      <div id="modal-inner"></div>
+    </div>
+  </div>
+
+  <!-- ======================================================
+       JAVASCRIPT (Modal funktionalitet)
+  ======================================================= -->
+  <script>
+    const modal = document.getElementById("modal");
+    const modalInner = document.getElementById("modal-inner");
+    const closeBtn = document.getElementById("modal-close");
+
+    const cardText = {
+      1: `
+        <h2>1. We start by understanding your reality.</h2>
+  
+        <h3>Purpose:</h3>
+        <p>To build a shared foundation and understand how your packaging performs across its full journey — where it adds value, and where it falls short.</p>
+  
+        <h3>What we do:</h3>
+        <ul>
+          <li>Collect data from production, logistics, marketing, and brand touchpoints.</li>
+          <li>Conduct stakeholder interviews and on-site observations.</li>
+          <li>Map the packaging lifecycle: from supply chain to unboxing.</li>
+        </ul>
+  
+        <h3>Deliverables:</h3>
+        <ul>
+          <li>A concise report outlining the current setup, key observations, and quick wins.</li>
+          <li>Identification of 2–4 prioritized focus areas and measurable KPIs.</li>
+          <li>Recommended next steps for improvement or redesign.</li>
+        </ul>
+  
+        <h3>Value:</h3>
+        <p>Clarity. A data-driven starting point to optimize cost, impact, and experience.</p>
+      `,
+      2: `
+        <h2>2. We shape your design DNA.</h2>
+  
+        <h3>Purpose:</h3>
+        <p>To translate insight into a strategic and visual foundation — your unique Packaging DNA.</p>
+  
+        <h3>What we do:</h3>
+        <ul>
+          <li>Facilitate a workshop with key stakeholders (design, marketing, operations).</li>
+          <li>Define your brand’s archetype, material philosophy, and sensory direction.</li>
+          <li>Develop design principles, structure, and tone for future packaging decisions.</li>
+        </ul>
+  
+        <h3>Deliverables:</h3>
+        <ul>
+          <li>A Packaging DNA Compass: visual guide with principles, material choices, and storytelling cues.</li>
+          <li>A prioritized list of packaging types and channel-specific recommendations.</li>
+        </ul>
+  
+        <h3>Value:</h3>
+        <p> A reusable, strategic tool that ensures consistency and alignment across all future packaging initiatives.</p>
+      `,
+      3: `
+        <h2>3. We make ideas tangible.</h2>
+  
+        <h3>Purpose:</h3>
+        <p>To turn strategy into visual and structural concepts — exploring directions that balance form, function, and feeling.</p>
+  
+        <h3>What we do:</h3>
+        <ul>
+          <li>Develop 2–3 concept directions based on your DNA.</li>
+          <li>Create visualizations, mockups, and storytelling examples across touchpoints (retail, e-commerce, unboxing).</li>
+          <li>Facilitate evaluation and decision-making workshops with your team.</li>
+        </ul>
+  
+        <h3>Deliverables:</h3>
+        <ul>
+          <li>2–3 concept presentations with visuals and rationale (impact on brand, cost, and sustainability).</li>
+          <li>Recommendation for the concept to move into detailed development.</li>
+        </ul>
+  
+        <h3>Value:</h3>
+        <p>Confidence in your creative direction — seeing the idea come to life before </p>
+      `,
+      4: `
+        <h2>4. We bring your solution to market — ready to make an impact.</h2>
+  
+        <h3>Purpose:</h3>
+        <p>To ensure the chosen concept works technically, logistically, and experientially — before full rollout.</p>
+  
+        <h3>What we do:</h3>
+        <ul>
+          <li>Develop physical or digital prototypes.</li>
+          <li>Test across relevant environments (production line, logistics, retail, consumer).</li>
+          <li>Refine materials, tolerances, and production specifications.</li>
+          <li>Bridge communication between designers, suppliers, and internal teams.</li>
+        </ul>
+  
+        <h3>Deliverables:</h3>
+        <ul>
+          <li>Tested prototype and evaluation report with improvement recommendations.</li>
+          <li>Finalized master files, technical drawings, and print/material specifications.</li>
+          <li>Implementation brief and handover documentation.</li>
+        </ul>
+  
+        <h3>Value:</h3>
+        <p>Reduced risk, smoother production, and a solution that performs as beautifully as it looks. </p>
+      `,
+      5: `
+        <h2>5. We scale together.</h2>
+  
+        <h3>Purpose:</h3>
+        <p>To ensure your packaging can scale responsibly — with the right partners, transparent processes, and ongoing improvement.</p>
+  
+        <h3>What we do:</h3>
+        <ul>
+          <li>Identify and match with relevant suppliers and material partners (Europe and Asia).</li>
+          <li>Define technical requirements, QC flow, and supplier governance structure.</li>
+          <li>Set up performance metrics (CO₂, cost efficiency, quality rate, customer experience).</li>
+          <li>Establish a continuous improvement cycle — measure → learn → refine.</li>
+        </ul>
+  
+        <h3>Deliverables:</h3>
+        <ul>
+          <li>Supplier overview and partnership recommendations.</li>
+          <li>Clear specifications, collaboration model, and scaling roadmap.</li>
+          <li>KPI framework for ongoing performance and sustainability reporting.</li>
+        </ul>
+  
+        <h3>Value:</h3>
+        <p>A robust, transparent, and future-ready packaging system that grows with your brand. </p>
+      `,
+    };
+
+    document.querySelectorAll(".card").forEach((card) => {
+      card.addEventListener("click", () => {
+        const id = card.dataset.card;
+        modalInner.innerHTML = cardText[id];
+        modal.classList.remove("hidden");
+      });
+    });
+
+    closeBtn.addEventListener("click", () => {
+      modal.classList.add("hidden");
+    });
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) modal.classList.add("hidden");
+    });
+  </script>
+</section>
+
+<!-- css -->
+<style>
+  .cards-section {
+    padding: 3rem 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .cards {
+    display: flex;
+    gap: 1rem;
+    position: relative;
+  }
+
+  .card {
+    width: 220px;
+    height: 340px;
+    background: url("/images/paper-texture.jpg"), #b99b78;
+    background-size: cover;
+    background-blend-mode: multiply;
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+
+    margin-left: -30px;
+    transition: transform 0.2s ease;
+  }
+
+  .card:first-child {
+    margin-left: 0;
+  }
+
+  .card-number {
+    font-family: "Comic Sans MS", "Marker Felt", sans-serif;
+    font-size: 2rem;
+    border: 2px solid white;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .card:nth-child(1) {
+    transform: rotate(-6deg);
+  }
+  .card:nth-child(2) {
+    transform: rotate(-2deg);
+  }
+  .card:nth-child(3) {
+    transform: rotate(1deg);
+  }
+  .card:nth-child(4) {
+    transform: rotate(3deg);
+  }
+  .card:nth-child(5) {
+    transform: rotate(5deg);
+  }
+
+  .card:hover {
+    transform: scale(1.05) rotate(0deg);
+    z-index: 10;
+  }
+
+  /* css til kortene når de klikkes på */
+  /* ===== MODAL OVERLAY ===== */
+  .modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(3px);
+    z-index: 1000;
+  }
+
+  .modal.hidden {
+    display: none;
+  }
+
+  /* ===== MODAL CARD ===== */
+  .modal-content {
+    background: url("/images/paper-texture.jpg"), #b99b78;
+    background-size: cover;
+    background-blend-mode: multiply;
+    width: 90%;
+    max-width: 600px;
+    padding: 2.5rem;
+    border-radius: 20px;
+    color: white;
+    font-size: 1rem;
+    line-height: 1.5;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+  }
+
+  /* ===== CLOSE BUTTON ===== */
+  .close-btn {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: white;
+    cursor: pointer;
+  }
+
+  /* ===== Modal typography ===== */
+
+  .modal-content h2 {
+    font-size: 1.8rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+  }
+
+  .modal-content h3 {
+    margin-top: 1.5rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  .modal-content ul {
+    margin: 0.7rem 0 0 1rem;
+    padding: 0;
+  }
+
+  .modal-content ul li {
+    margin-bottom: 0.4rem;
+  }
+
+  /* Håndskrevet ’circle number’ i modal */
+  #modal-inner .card-number-circle {
+    font-family: "Comic Sans MS", "Marker Felt", sans-serif;
+    font-size: 2.3rem;
+    border: 2px solid white;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  /* css til pap bagrunden */
+  .card,
+  .modal-content {
+    background: url("/pap.jpg");
+    background-size: cover;
+    background-blend-mode: multiply;
+  }
+</style>
