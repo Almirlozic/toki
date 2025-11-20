@@ -1,0 +1,353 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+  <section class="hero">
+    <h1>EVERY PACKAGING CARRIES A STORY</h1>
+    <h2>...Make yours sustainable</h2>
+    <img src="/public/cykel.svg" alt="Toki Cykelbud" width="200px" />
+  </section>
+  <section class="introduction">
+    <p>
+      "At TÓKI, we create packaging with purpose. Our designs protect, express,
+      and endure — with sustainability at the core. Because every package tells
+      a story. Make yours a sustainable one."
+    </p>
+  </section>
+  <section class="impact">
+    <h2 class="impact-title">our impact<br />today</h2>
+
+    <div class="impact-boxes">
+      <div class="impact-box small">
+        <p class="impact-number">10%</p>
+        <p class="impact-text">litres of water saved</p>
+      </div>
+
+      <div class="impact-box medium">
+        <p class="impact-number">24%</p>
+        <p class="impact-text">litres of water saved</p>
+      </div>
+
+      <div class="impact-box large">
+        <p class="impact-number">80%</p>
+        <p class="impact-text">litres of water saved</p>
+      </div>
+    </div>
+  </section>
+  <section class="work">
+    <div>
+      <h2>How we work</h2>
+      <p>
+        With TÓKI Flow, we create more than packaging – we build systems that
+        work. <br />
+        <br />Solutions that strengthen brands, optimize value chains, and
+        reduce impact.
+      </p>
+      <img class="work-img" src="/public/carousell.png" alt="" />
+      <p id="under-flow">
+        By thinking holistically from the start, packaging becomes a strategic
+        tool – not a cost, but an opportunity. <br /><br />
+        And together, partnership turns ideas into impact.
+      </p>
+      <img class="img-read" src="/public/readmore.png" alt="read more botton" />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  .hero img {
+    margin-top: 60px;
+    transform: rotate(6deg);
+  }
+  h1,
+  h2 {
+    color: #deb959;
+  }
+  h1 {
+    padding-right: 20px;
+    max-width: 350px;
+    text-align: center;
+    color: #ffde89;
+    font-size: 7vw;
+  }
+  h2 {
+    font-size: 30px;
+    padding-left: 20px;
+  }
+  .introduction {
+    padding-top: 5px;
+    margin-bottom: 50px;
+  }
+  .introduction p {
+    max-width: 270px;
+    text-align: center;
+    margin: auto;
+    line-height: 150%;
+  }
+  .hero {
+    background-image: url(/public/header-bg1.png);
+    background-repeat: no-repeat;
+    background-size: 150%;
+    background-position: center bottom;
+    background-position-y: -150px;
+    padding: 80px 20px; /* så sektionen faktisk fylder noget */
+  }
+  .hero h2 {
+    padding-left: 50px;
+    color: #ffde89;
+  }
+  .impact {
+    background-image: url(/public/impact-bg.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: -50px;
+    padding-bottom: 100px;
+    position: relative;
+  }
+
+  .impact-title {
+    font-size: 45px;
+    line-height: 1;
+    margin-bottom: -110px;
+    font-weight: 700;
+    padding-top: 100px;
+  }
+
+  .impact-boxes {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end; /* så de står som et diagram */
+    margin: 20px;
+  }
+
+  .impact-box {
+    padding: 30px 20px;
+    text-align: center;
+    width: 100px; /* kan ændres */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .impact-box.small {
+    height: 70px;
+    background-image: url(/public/impact-stats3.svg);
+    background-repeat: no-repeat; /* pap-farven */
+    background-size: cover;
+    border-radius: 30px;
+  }
+  .impact-box.medium {
+    height: 110px;
+    background-image: url(/public/impact-stats2.svg);
+    background-repeat: no-repeat; /* pap-farven */
+    background-size: cover;
+    border-radius: 30px;
+  }
+  .impact-box.large {
+    height: 200px;
+    background-image: url(/public/impact-stats.svg);
+    background-repeat: no-repeat; /* pap-farven */
+    background-size: cover;
+    border-radius: 30px;
+  }
+
+  .impact-number {
+    color: #2c5d2c; /* grøn tekst */
+    font-size: 26px;
+    margin: 0;
+    text-align: start;
+  }
+
+  .impact-text {
+    color: white;
+    font-size: 10px;
+    margin-top: 8px;
+    text-align: start;
+  }
+
+  .work {
+    background-image: url(/public/work-bg.png);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 100%;
+    z-index: -1;
+    padding-top: 100px;
+  }
+  .work p {
+    color: #deb959;
+    max-width: 200px;
+    line-height: 150%;
+    padding-left: 20px;
+    padding-top: 20px;
+  }
+  .work-img {
+    margin-top: -50px;
+  }
+  #under-flow {
+    text-align: right;
+    margin: auto;
+    margin-left: 140px;
+    margin-top: -50px;
+  }
+  .img-read {
+    width: 150px;
+    margin-top: -130px;
+  }
+  body {
+    background-color: #ebe5d8;
+  }
+
+  @media (min-width: 769px) {
+    .hero img {
+      transform: rotate(-10deg);
+      width: 300px;
+      margin-left: 800px;
+      margin-top: -50px;
+      margin-bottom: -90px;
+    }
+
+    /* Desktop hero: fix nested-rule bug and anchor the background to the bottom */
+    .hero {
+      background-image: url(/public/header-bg2.png);
+      background-size: 200%;
+      background-position: center bottom; /* <-- anchor waves to bottom */
+      background-repeat: no-repeat;
+      position: relative;
+      z-index: 1;
+      padding-left: 100px;
+    }
+
+    h1 {
+      font-size: 50px;
+      max-width: 500px;
+    }
+    .introduction {
+      margin-top: 50px;
+      position: relative;
+      z-index: -2;
+    }
+    .introduction p {
+      font-size: 28px;
+      max-width: 445px;
+    }
+
+    /* Center the impact section and ensure its background (the waves) sits at the bottom */
+    .impact {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      background-image: url(/public/impact-bg.svg);
+      background-repeat: no-repeat;
+      background-size: 100% auto; /* stretch horizontally but keep aspect ratio */
+      background-position: bottom;
+      background-position: top;
+      padding-bottom: 240px; /* make sure there's space for the wave graphic */
+    }
+
+    .impact-title {
+      margin-left: -550px;
+      text-align: start;
+      font-size: 80px;
+    }
+
+    .impact-boxes {
+      display: flex;
+      gap: 20px;
+      align-items: flex-end; /* så de står som et diagram */
+      margin: 20px;
+    }
+
+    .impact-box {
+      padding: 30px 20px;
+      text-align: center;
+      width: 250px; /* kan ændres */
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .impact-box.small {
+      height: 140px;
+      background-image: url(/public/impact-stats3.svg);
+      background-repeat: no-repeat; /* pap-farven */
+      background-size: cover;
+      border-radius: 30px;
+    }
+    .impact-box.medium {
+      height: 180px;
+      background-image: url(/public/impact-stats2.svg);
+      background-repeat: no-repeat; /* pap-farven */
+      background-size: cover;
+      border-radius: 30px;
+    }
+    .impact-box.large {
+      height: 300px;
+      background-image: url(/public/impact-stats.svg);
+      background-repeat: no-repeat; /* pap-farven */
+      background-size: cover;
+      border-radius: 30px;
+    }
+
+    .impact-number {
+      color: #2c5d2c; /* grøn tekst */
+      font-size: 50px;
+      margin: 0;
+      text-align: center;
+    }
+
+    .impact-text {
+      color: white;
+      font-size: 30px;
+      margin-top: 8px;
+      text-align: center;
+    }
+    .work {
+      background-image: url(/public/work.svg);
+      background-position: top;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      margin-top: -200px;
+      padding: 100px;
+    }
+    .work div {
+      max-width: 1500px;
+    }
+    .work h2 {
+      font-size: 80px;
+      margin-top: 100px;
+    }
+    .work-img {
+      width: 600px;
+      margin: auto;
+      justify-content: center;
+    }
+    .img-read {
+      width: 300px;
+      margin-left: 200px;
+      padding-bottom: 50px;
+      margin-top: -200px;
+    }
+    .work p {
+      font-size: 28px;
+      max-width: 400px;
+    }
+    #under-flow {
+      margin-left: 800px;
+      text-align: start;
+    }
+  }
+</style>
