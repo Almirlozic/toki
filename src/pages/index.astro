@@ -1,247 +1,353 @@
 ---
-
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-<section class="hero">
-  <div class="hero-title">
-    <h1>EVERY PACKAGING <br> CARRIES A STORY</h1>
-    <h2>...makes yours sustainable</h2>
-    <img class="hero-img" src="public/cykel.svg" alt="">
-  </div>
+  <section class="hero">
+    <h1>EVERY PACKAGING CARRIES A STORY</h1>
+    <h2>...Make yours sustainable</h2>
+    <img src="/public/cykel.svg" alt="Toki Cykelbud" width="200px" />
+  </section>
+  <section class="introduction">
+    <p>
+      "At TÓKI, we create packaging with purpose. Our designs protect, express,
+      and endure — with sustainability at the core. Because every package tells
+      a story. Make yours a sustainable one."
+    </p>
+  </section>
+  <section class="impact">
+    <h2 class="impact-title">our impact<br />today</h2>
 
-  <div class="wave">
-    <svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-      <path fill="#f6e8cc" d="M0,224L80,197.3C160,171,320,117,480,117.3C640,117,800,171,960,176C1120,181,1280,139,1360,117.3L1440,96V320H0Z"></path>
-    </svg>
-  </div>
-</section>
+    <div class="impact-boxes">
+      <div class="impact-box small">
+        <p class="impact-number">10%</p>
+        <p class="impact-text">litres of water saved</p>
+      </div>
 
-<section class="toki">
-  <p>“At TÓKI, we create packaging with purpose. Our designs protect, express, and endure — with sustainability at the core. Because every package tells a story. Make yours a sustainable one.”</p>
-</section>
-<section class="impact">
-  <h2>
-      <span>our impact</span><br>
-      <span>today</span>
-  </h2>
-  
-  <div class="impact-cards">    
-    <div class="card">
-      <img src="public/firkant1.svg" alt="">
-      <div class="card-text" style="top: 10%; left: 35%;">
-        <span>10%</span>
-        <p>litres of water saved</p>
+      <div class="impact-box medium">
+        <p class="impact-number">24%</p>
+        <p class="impact-text">litres of water saved</p>
+      </div>
+
+      <div class="impact-box large">
+        <p class="impact-number">80%</p>
+        <p class="impact-text">litres of water saved</p>
       </div>
     </div>
-
-    <div class="card">
-      <img src="public/firkant2.svg" alt="">
-      <div class="card-text" style="top: 45%; left: 35%;">
-        <span>24%</span>
-        <p>litres of water saved</p>
-      </div>
+  </section>
+  <section class="work">
+    <div>
+      <h2>How we work</h2>
+      <p>
+        With TÓKI Flow, we create more than packaging – we build systems that
+        work. <br />
+        <br />Solutions that strengthen brands, optimize value chains, and
+        reduce impact.
+      </p>
+      <img class="work-img" src="/public/carousell.png" alt="" />
+      <p id="under-flow">
+        By thinking holistically from the start, packaging becomes a strategic
+        tool – not a cost, but an opportunity. <br /><br />
+        And together, partnership turns ideas into impact.
+      </p>
+      <img class="img-read" src="/public/readmore.png" alt="read more botton" />
     </div>
-
-    <div class="card">
-      <img src="public/firkant3.svg" alt="">
-      <div class="card-text" style="top: 60%; left: 35%;">
-        <span>80%</span>
-        <p>litres of water saved</p>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="work">
-<svg class="work-svg" width="100%" height="auto" viewBox="0 0 1280 1972" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M-0.326965 138.43C453.02 -200.975 1071.6 198.116 1280 138.43V1906.07C1102.6 2118.1 514.188 1735.77 -0.326904 1906.07C-514.841 2076.37 -0.326965 138.43 -0.326965 138.43Z" fill="#22372F"/>
-</svg>
-
-  <div class="tekst1">
-    <h2>how we work</h2>
-    <p>With TÓKI Flow, we create more than packaging – we build systems that work.
- Solutions that strengthen brands, optimize value chains, and reduce impact.</p>
-  </div>
-</section>
-
-
-
+  </section>
 </Layout>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-}
-h1,h2{
-  color: #DEB959;
-}
-body{
-    background-color: #f6e8cc; 
-}
-
-.hero {
-  background-color: #22372F;
-  color: #FFDE89;
-  padding: 70px 25px;
-  position: relative;
-  overflow: hidden;
-  height: 500px
-}
-
-.hero-title {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-}
-.hero-img{
-  position: absolute;
-  width: 50%;
-  top: 225%;
-  left: 5%;
-}
-
-.wave {
-  position: absolute;
-  bottom: -50px; /* flytter bølgen nedad */
-  left: 0;
-  width: 100%;
-  height: 400px; /* højere end før */
-  overflow: visible;
-  z-index: 1;
-}
-
-.wave svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.toki {
-  background-color: #f6e8cc; 
-  padding: 100px 25px;
-  position: relative;
-  z-index: 0;
-  text-align: center;
-  line-height: 2;
-}
-.impact {
-  position: relative;
-  width: 100%;
-  height: 100vh; /* hele viewport-højden */
-  overflow: hidden;
-}
-
-.impact-svg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;   /* hele skærmens bredde */
-  height: 100vh;  /* hele viewport-højden */
-  z-index: -1;    /* bag indholdet */
-}
-
-
-.impact-cards {
-  gap: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-}
-
-.card {
-  position: relative;
-  display: inline-block;
-}
-
-.card img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.card-text {
-  position: absolute;
-  transform: translateX(-50%);
-  text-align: center;
-  color: #204E2E;
-}
-
-.card-text span {
-  font-size: 1rem;
-  font-weight: 700;
-}
-
-.card-text p {
-  font-size: 0.6rem;
-  margin-top: 5px;
-  color: white;           
-}
-.impact h2 {
-  font-size: 2.5rem; 
-  font-weight: 700;
-  line-height: 1.1; 
-  text-align: left; 
-  color: #DEB959;   
-  max-width: 400px; 
-  width: 90%;
-  margin-bottom: -80px;
-  padding-top: 100px;
-  padding-left: 40px;
-
-}
-.work {
-  position: relative;   /* vigtig! */
-  margin-top: -500px;
-}
-
-.work-svg {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.tekst1 {
-  position: absolute;   
-  top: 20%;             
-  left: 0;
-  z-index: 2;
-  color: #DEB959;       
-  max-width: 400px;
-  padding: 0 40px;
-  line-height: 2;
-}
-
-
-
-
-@media (min-width: 1024px) {
-  .impact-svg {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
+  * {
+    margin: 0;
+    padding: 0;
   }
-}
+  .hero img {
+    margin-top: 60px;
+    transform: rotate(6deg);
+  }
+  h1,
+  h2 {
+    color: #deb959;
+  }
+  h1 {
+    padding-right: 20px;
+    max-width: 350px;
+    text-align: center;
+    color: #ffde89;
+    font-size: 7vw;
+  }
+  h2 {
+    font-size: 30px;
+    padding-left: 20px;
+  }
+  .introduction {
+    padding-top: 5px;
+    margin-bottom: 50px;
+  }
+  .introduction p {
+    max-width: 270px;
+    text-align: center;
+    margin: auto;
+    line-height: 150%;
+  }
+  .hero {
+    background-image: url(/public/header-bg1.png);
+    background-repeat: no-repeat;
+    background-size: 150%;
+    background-position: center bottom;
+    background-position-y: -150px;
+    padding: 80px 20px; /* så sektionen faktisk fylder noget */
+  }
+  .hero h2 {
+    padding-left: 50px;
+    color: #ffde89;
+  }
+  .impact {
+    background-image: url(/public/impact-bg.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: -50px;
+    padding-bottom: 100px;
+    position: relative;
+  }
 
+  .impact-title {
+    font-size: 45px;
+    line-height: 1;
+    margin-bottom: -110px;
+    font-weight: 700;
+    padding-top: 100px;
+  }
 
+  .impact-boxes {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end; /* så de står som et diagram */
+    margin: 20px;
+  }
 
+  .impact-box {
+    padding: 30px 20px;
+    text-align: center;
+    width: 100px; /* kan ændres */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
 
+  .impact-box.small {
+    height: 70px;
+    background-image: url(/public/impact-stats3.svg);
+    background-repeat: no-repeat; /* pap-farven */
+    background-size: cover;
+    border-radius: 30px;
+  }
+  .impact-box.medium {
+    height: 110px;
+    background-image: url(/public/impact-stats2.svg);
+    background-repeat: no-repeat; /* pap-farven */
+    background-size: cover;
+    border-radius: 30px;
+  }
+  .impact-box.large {
+    height: 200px;
+    background-image: url(/public/impact-stats.svg);
+    background-repeat: no-repeat; /* pap-farven */
+    background-size: cover;
+    border-radius: 30px;
+  }
 
+  .impact-number {
+    color: #2c5d2c; /* grøn tekst */
+    font-size: 26px;
+    margin: 0;
+    text-align: start;
+  }
 
+  .impact-text {
+    color: white;
+    font-size: 10px;
+    margin-top: 8px;
+    text-align: start;
+  }
 
+  .work {
+    background-image: url(/public/work-bg.png);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 100%;
+    z-index: -1;
+    padding-top: 100px;
+  }
+  .work p {
+    color: #deb959;
+    max-width: 200px;
+    line-height: 150%;
+    padding-left: 20px;
+    padding-top: 20px;
+  }
+  .work-img {
+    margin-top: -50px;
+  }
+  #under-flow {
+    text-align: right;
+    margin: auto;
+    margin-left: 140px;
+    margin-top: -50px;
+  }
+  .img-read {
+    width: 150px;
+    margin-top: -130px;
+  }
+  body {
+    background-color: #ebe5d8;
+  }
+
+  @media (min-width: 769px) {
+    .hero img {
+      transform: rotate(-10deg);
+      width: 300px;
+      margin-left: 800px;
+      margin-top: -50px;
+      margin-bottom: -90px;
+    }
+
+    /* Desktop hero: fix nested-rule bug and anchor the background to the bottom */
+    .hero {
+      background-image: url(/public/header-bg2.png);
+      background-size: 200%;
+      background-position: center bottom; /* <-- anchor waves to bottom */
+      background-repeat: no-repeat;
+      position: relative;
+      z-index: 1;
+      padding-left: 100px;
+    }
+
+    h1 {
+      font-size: 50px;
+      max-width: 500px;
+    }
+    .introduction {
+      margin-top: 50px;
+      position: relative;
+      z-index: -2;
+    }
+    .introduction p {
+      font-size: 28px;
+      max-width: 445px;
+    }
+
+    /* Center the impact section and ensure its background (the waves) sits at the bottom */
+    .impact {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      background-image: url(/public/impact-bg.svg);
+      background-repeat: no-repeat;
+      background-size: 100% auto; /* stretch horizontally but keep aspect ratio */
+      background-position: bottom;
+      background-position: top;
+      padding-bottom: 240px; /* make sure there's space for the wave graphic */
+    }
+
+    .impact-title {
+      margin-left: -550px;
+      text-align: start;
+      font-size: 80px;
+    }
+
+    .impact-boxes {
+      display: flex;
+      gap: 20px;
+      align-items: flex-end; /* så de står som et diagram */
+      margin: 20px;
+    }
+
+    .impact-box {
+      padding: 30px 20px;
+      text-align: center;
+      width: 250px; /* kan ændres */
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .impact-box.small {
+      height: 140px;
+      background-image: url(/public/impact-stats3.svg);
+      background-repeat: no-repeat; /* pap-farven */
+      background-size: cover;
+      border-radius: 30px;
+    }
+    .impact-box.medium {
+      height: 180px;
+      background-image: url(/public/impact-stats2.svg);
+      background-repeat: no-repeat; /* pap-farven */
+      background-size: cover;
+      border-radius: 30px;
+    }
+    .impact-box.large {
+      height: 300px;
+      background-image: url(/public/impact-stats.svg);
+      background-repeat: no-repeat; /* pap-farven */
+      background-size: cover;
+      border-radius: 30px;
+    }
+
+    .impact-number {
+      color: #2c5d2c; /* grøn tekst */
+      font-size: 50px;
+      margin: 0;
+      text-align: center;
+    }
+
+    .impact-text {
+      color: white;
+      font-size: 30px;
+      margin-top: 8px;
+      text-align: center;
+    }
+    .work {
+      background-image: url(/public/work.svg);
+      background-position: top;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      margin-top: -200px;
+      padding: 100px;
+    }
+    .work div {
+      max-width: 1500px;
+    }
+    .work h2 {
+      font-size: 80px;
+      margin-top: 100px;
+    }
+    .work-img {
+      width: 600px;
+      margin: auto;
+      justify-content: center;
+    }
+    .img-read {
+      width: 300px;
+      margin-left: 200px;
+      padding-bottom: 50px;
+      margin-top: -200px;
+    }
+    .work p {
+      font-size: 28px;
+      max-width: 400px;
+    }
+    #under-flow {
+      margin-left: 800px;
+      text-align: start;
+    }
+  }
 </style>
-
-
-
-
-
-
-
-
-
-
-
