@@ -1,5 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Cases from "./cases.astro";
+import Cards from "../components/Cards.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -47,7 +49,9 @@ import Layout from "../layouts/Layout.astro";
         <br />Solutions that strengthen brands, optimize value chains, and
         reduce impact.
       </p>
-      <img class="work-img" src="/public/carousell.png" alt="" />
+      <div class="cards">
+        <Cards />
+      </div>
       <p id="under-flow">
         By thinking holistically from the start, packaging becomes a strategic
         tool – not a cost, but an opportunity. <br /><br />
@@ -187,6 +191,7 @@ import Layout from "../layouts/Layout.astro";
     line-height: 150%;
     padding-left: 20px;
     padding-top: 20px;
+    margin-bottom: 50px;
   }
   .work-img {
     margin-top: -50px;
@@ -195,7 +200,7 @@ import Layout from "../layouts/Layout.astro";
     text-align: right;
     margin: auto;
     margin-left: 140px;
-    margin-top: -50px;
+    margin-top: 50px;
   }
   .img-read {
     width: 150px;
