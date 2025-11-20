@@ -3,6 +3,12 @@
 ---
 
 <!-- html til kortene -->
+<div class="mobile-nav">
+  <button id="prev-btn" class="arrow-btn">←</button>
+  <button id="next-btn" class="arrow-btn">→</button>
+</div>
+
+
 <section class="cards-section">
   <div class="cards">
     <div class="card" data-card="1">
@@ -44,156 +50,150 @@
   <!-- ======================================================
        JAVASCRIPT (Modal funktionalitet)
   ======================================================= -->
-  <script>
-    const modal = document.getElementById("modal");
-    const modalInner = document.getElementById("modal-inner");
-    const closeBtn = document.getElementById("modal-close");
+<script>
+  const modal = document.getElementById("modal");
+  const modalInner = document.getElementById("modal-inner");
+  const closeBtn = document.getElementById("modal-close");
 
-    const cardText = {
-      1: `
-        <h2>1. We start by understanding your reality.</h2>
-  
-        <h3>Purpose:</h3>
-        <p>To build a shared foundation and understand how your packaging performs across its full journey — where it adds value, and where it falls short.</p>
-  
-        <h3>What we do:</h3>
-        <ul>
-          <li>Collect data from production, logistics, marketing, and brand touchpoints.</li>
-          <li>Conduct stakeholder interviews and on-site observations.</li>
-          <li>Map the packaging lifecycle: from supply chain to unboxing.</li>
-        </ul>
-  
-        <h3>Deliverables:</h3>
-        <ul>
-          <li>A concise report outlining the current setup, key observations, and quick wins.</li>
-          <li>Identification of 2–4 prioritized focus areas and measurable KPIs.</li>
-          <li>Recommended next steps for improvement or redesign.</li>
-        </ul>
-  
-        <h3>Value:</h3>
-        <p>Clarity. A data-driven starting point to optimize cost, impact, and experience.</p>
-      `,
-      2: `
-        <h2>2. We shape your design DNA.</h2>
-  
-        <h3>Purpose:</h3>
-        <p>To translate insight into a strategic and visual foundation — your unique Packaging DNA.</p>
-  
-        <h3>What we do:</h3>
-        <ul>
-          <li>Facilitate a workshop with key stakeholders (design, marketing, operations).</li>
-          <li>Define your brand’s archetype, material philosophy, and sensory direction.</li>
-          <li>Develop design principles, structure, and tone for future packaging decisions.</li>
-        </ul>
-  
-        <h3>Deliverables:</h3>
-        <ul>
-          <li>A Packaging DNA Compass: visual guide with principles, material choices, and storytelling cues.</li>
-          <li>A prioritized list of packaging types and channel-specific recommendations.</li>
-        </ul>
-  
-        <h3>Value:</h3>
-        <p> A reusable, strategic tool that ensures consistency and alignment across all future packaging initiatives.</p>
-      `,
-      3: `
-        <h2>3. We make ideas tangible.</h2>
-  
-        <h3>Purpose:</h3>
-        <p>To turn strategy into visual and structural concepts — exploring directions that balance form, function, and feeling.</p>
-  
-        <h3>What we do:</h3>
-        <ul>
-          <li>Develop 2–3 concept directions based on your DNA.</li>
-          <li>Create visualizations, mockups, and storytelling examples across touchpoints (retail, e-commerce, unboxing).</li>
-          <li>Facilitate evaluation and decision-making workshops with your team.</li>
-        </ul>
-  
-        <h3>Deliverables:</h3>
-        <ul>
-          <li>2–3 concept presentations with visuals and rationale (impact on brand, cost, and sustainability).</li>
-          <li>Recommendation for the concept to move into detailed development.</li>
-        </ul>
-  
-        <h3>Value:</h3>
-        <p>Confidence in your creative direction — seeing the idea come to life before </p>
-      `,
-      4: `
-        <h2>4. We bring your solution to market — ready to make an impact.</h2>
-  
-        <h3>Purpose:</h3>
-        <p>To ensure the chosen concept works technically, logistically, and experientially — before full rollout.</p>
-  
-        <h3>What we do:</h3>
-        <ul>
-          <li>Develop physical or digital prototypes.</li>
-          <li>Test across relevant environments (production line, logistics, retail, consumer).</li>
-          <li>Refine materials, tolerances, and production specifications.</li>
-          <li>Bridge communication between designers, suppliers, and internal teams.</li>
-        </ul>
-  
-        <h3>Deliverables:</h3>
-        <ul>
-          <li>Tested prototype and evaluation report with improvement recommendations.</li>
-          <li>Finalized master files, technical drawings, and print/material specifications.</li>
-          <li>Implementation brief and handover documentation.</li>
-        </ul>
-  
-        <h3>Value:</h3>
-        <p>Reduced risk, smoother production, and a solution that performs as beautifully as it looks. </p>
-      `,
-      5: `
-        <h2>5. We scale together.</h2>
-  
-        <h3>Purpose:</h3>
-        <p>To ensure your packaging can scale responsibly — with the right partners, transparent processes, and ongoing improvement.</p>
-  
-        <h3>What we do:</h3>
-        <ul>
-          <li>Identify and match with relevant suppliers and material partners (Europe and Asia).</li>
-          <li>Define technical requirements, QC flow, and supplier governance structure.</li>
-          <li>Set up performance metrics (CO₂, cost efficiency, quality rate, customer experience).</li>
-          <li>Establish a continuous improvement cycle — measure → learn → refine.</li>
-        </ul>
-  
-        <h3>Deliverables:</h3>
-        <ul>
-          <li>Supplier overview and partnership recommendations.</li>
-          <li>Clear specifications, collaboration model, and scaling roadmap.</li>
-          <li>KPI framework for ongoing performance and sustainability reporting.</li>
-        </ul>
-  
-        <h3>Value:</h3>
-        <p>A robust, transparent, and future-ready packaging system that grows with your brand. </p>
-      `,
-    };
+  const cardText = {
+    1: ` <h2>1. We start by understanding your reality.</h2>
+      <h3>Purpose:</h3>
+      <p>To build a shared foundation and understand how your packaging performs across its full journey — where it adds value, and where it falls short.</p>
+      <h3>What we do:</h3>
+      <ul>
+        <li>Collect data from production, logistics, marketing, and brand touchpoints.</li>
+        <li>Conduct stakeholder interviews and on-site observations.</li>
+        <li>Map the packaging lifecycle: from supply chain to unboxing.</li>
+      </ul>
+      <h3>Deliverables:</h3>
+      <ul>
+        <li>A concise report outlining the current setup, key observations, and quick wins.</li>
+        <li>Identification of 2–4 prioritized focus areas and measurable KPIs.</li>
+        <li>Recommended next steps for improvement or redesign.</li>
+      </ul>
+      <h3>Value:</h3>
+      <p>Clarity. A data-driven starting point to optimize cost, impact, and experience.</p>`,
 
-    document.querySelectorAll(".card").forEach((card) => {
-      card.addEventListener("click", () => {
-        const id = card.dataset.card;
-        modalInner.innerHTML = cardText[id];
-        modal.classList.remove("hidden");
-      });
+    2: ` <h2>2. We shape your design DNA.</h2>
+      <h3>Purpose:</h3>
+      <p>To translate insight into a strategic and visual foundation — your unique Packaging DNA.</p>
+      <h3>What we do:</h3>
+      <ul>
+        <li>Facilitate a workshop with key stakeholders (design, marketing, operations).</li>
+        <li>Define your brand’s archetype, material philosophy, and sensory direction.</li>
+        <li>Develop design principles, structure, and tone for future packaging decisions.</li>
+      </ul>
+      <h3>Deliverables:</h3>
+      <ul>
+        <li>A Packaging DNA Compass: visual guide with principles, material choices, and storytelling cues.</li>
+        <li>A prioritized list of packaging types and channel-specific recommendations.</li>
+      </ul>
+      <h3>Value:</h3>
+      <p>A reusable, strategic tool that ensures consistency and alignment across all future packaging initiatives.</p>`,
+
+    3: ` <h2>3. We make ideas tangible.</h2>
+      <h3>Purpose:</h3>
+      <p>To turn strategy into visual and structural concepts — exploring directions that balance form, function, and feeling.</p>
+      <h3>What we do:</h3>
+      <ul>
+        <li>Develop 2–3 concept directions based on your DNA.</li>
+        <li>Create visualizations, mockups, and storytelling examples across touchpoints (retail, e-commerce, unboxing).</li>
+        <li>Facilitate evaluation and decision-making workshops with your team.</li>
+      </ul>
+      <h3>Deliverables:</h3>
+      <ul>
+        <li>2–3 concept presentations with visuals and rationale.</li>
+        <li>Recommendation for the concept to move into detailed development.</li>
+      </ul>
+      <h3>Value:</h3>
+      <p>Confidence in your creative direction — seeing the idea come to life before launch.</p>`,
+
+    4: ` <h2>4. We bring your solution to market — ready to make an impact.</h2>
+      <h3>Purpose:</h3>
+      <p>To ensure the chosen concept works technically, logistically, and experientially — before full rollout.</p>
+      <h3>What we do:</h3>
+      <ul>
+        <li>Develop physical or digital prototypes.</li>
+        <li>Test across relevant environments (production line, logistics, retail, consumer).</li>
+        <li>Refine materials, tolerances, and production specifications.</li>
+        <li>Bridge communication between designers, suppliers, and internal teams.</li>
+      </ul>
+      <h3>Deliverables:</h3>
+      <ul>
+        <li>Tested prototype and evaluation report with improvements.</li>
+        <li>Final master files and print/material specifications.</li>
+        <li>Implementation brief and handover documentation.</li>
+      </ul>
+      <h3>Value:</h3>
+      <p>Reduced risk and a solution that performs as beautifully as it looks.</p>`,
+
+    5: ` <h2>5. We scale together.</h2>
+      <h3>Purpose:</h3>
+      <p>To ensure your packaging can scale responsibly with the right partners and continuous optimization.</p>
+      <h3>What we do:</h3>
+      <ul>
+        <li>Identify and match with relevant suppliers and materials (EU & Asia).</li>
+        <li>Set technical requirements, QC flow, and governance.</li>
+        <li>Track KPIs (CO₂, cost efficiency, quality rate, experience).</li>
+      </ul>
+      <h3>Deliverables:</h3>
+      <ul>
+        <li>Supplier overview and roadmap.</li>
+        <li>Specifications and collaboration model.</li>
+        <li>KPI framework and scalability plan.</li>
+      </ul>
+      <h3>Value:</h3>
+      <p>A future-proof packaging system that grows with your brand.</p>`
+  };
+
+  /* ==== MODAL ===== */
+  document.querySelectorAll(".card").forEach(card => {
+    card.addEventListener("click", () => {
+      const id = card.dataset.card;
+      modalInner.innerHTML = cardText[id];
+      modal.classList.remove("hidden");
     });
+  });
 
-    closeBtn.addEventListener("click", () => {
-      modal.classList.add("hidden");
-    });
+  closeBtn.addEventListener("click", () => modal.classList.add("hidden"));
+  modal.addEventListener("click", e => { if (e.target === modal) modal.classList.add("hidden") });
 
-    modal.addEventListener("click", (e) => {
-      if (e.target === modal) modal.classList.add("hidden");
-    });
-  </script>
+
+/* ===== MOBILE CARD CAROUSEL ===== */
+/* ===== MOBILE CARD CAROUSEL (static center switching) ===== */
+let currentIndex = 0;
+const cards = document.querySelectorAll(".card");
+
+function updateMobileCards() {
+  cards.forEach((card, index) => {
+    card.style.display = (index === currentIndex) ? "flex" : "none";
+  });
+}
+
+document.getElementById("next-btn").addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % cards.length;
+  updateMobileCards();
+});
+
+document.getElementById("prev-btn").addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+  updateMobileCards();
+});
+
+updateMobileCards(); // init
+
+
+</script>
+
+
 </section>
 
 <!-- css -->
 <style>
-  .cards-section {
-    padding: 3rem 0;
-    display: flex;
-    justify-content: center;
-  }
+  /* MOBILE MODE */
+/* MOBILE FULL CENTER CAROUSEL */
 
-  .cards {
+.cards {
     display: flex;
     gap: 1rem;
     position: relative;
@@ -220,10 +220,7 @@
     margin-left: -30px;
     transition: transform 0.2s ease;
   }
-
-  .card:first-child {
-    margin-left: 0;
-  }
+ 
 
   .card-number {
     font-family: "Comic Sans MS", "Marker Felt", sans-serif;
@@ -237,32 +234,45 @@
     align-items: center;
     margin-bottom: 1rem;
   }
+.cards {
+    position: relative;
+    width: 100%;
+    height: 430px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  .card:nth-child(1) {
-    transform: rotate(-6deg);
-  }
-  .card:nth-child(2) {
-    transform: rotate(-2deg);
-  }
-  .card:nth-child(3) {
-    transform: rotate(1deg);
-  }
-  .card:nth-child(4) {
-    transform: rotate(3deg);
-  }
-  .card:nth-child(5) {
-    transform: rotate(5deg);
   }
 
-  .card:hover {
-    transform: scale(1.05) rotate(0deg);
-    z-index: 10;
+  .card {
+    position: absolute;
+    width: 250px;
+    height: 380px;
+    display: none; 
+    opacity: 1 !important;
+    rotate: 0deg !important;
+    margin: auto;
   }
+
+  .mobile-nav {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 1.5rem auto 0;
+  }
+  .arrow-btn{
+    background-color: transparent;
+    color: #DEB959;
+    border: none;
+    font-size: 2rem;
+  }
+ 
+
 
   /* css til kortene når de klikkes på */
   /* ===== MODAL OVERLAY ===== */
   .modal {
-    position: fixed;
+    position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.65);
     display: flex;
@@ -270,6 +280,7 @@
     justify-content: center;
     backdrop-filter: blur(3px);
     z-index: 1000;
+    margin-bottom: 500px;
   }
 
   .modal.hidden {
@@ -281,22 +292,24 @@
     background: url("/images/paper-texture.jpg"), #b99b78;
     background-size: cover;
     background-blend-mode: multiply;
-    width: 90%;
+    width: 60%;
     max-width: 600px;
-    padding: 2.5rem;
+    padding: 3.5rem;
     border-radius: 20px;
     color: white;
     font-size: 1rem;
     line-height: 1.5;
     position: relative;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+    max-height: 80vh;       /* så modal aldrig stikker udenfor skærmen */
+    overflow-y: auto; 
   }
 
   /* ===== CLOSE BUTTON ===== */
   .close-btn {
-    position: absolute;
-    top: 18px;
-    right: 18px;
+    position: sticky;
+    top: 5px;
+    left: 260px;
     background: none;
     border: none;
     font-size: 1.8rem;
@@ -349,4 +362,39 @@
     background-size: cover;
     background-blend-mode: multiply;
   }
+
+  @media (min-width: 768px) {
+
+  .mobile-nav {
+    display: none; /* skjul mobil-pile på desktop */
+  }
+
+  .cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    position: relative;
+  }
+
+  .card {
+    position: relative;
+    display: flex !important;  /* vis alle kort på desktop */
+   margin: -10px;
+    width: 220px;
+    height: 340px;
+  }
+
+  .card:nth-child(1) { transform: rotate(-6deg); }
+  .card:nth-child(2) { transform: rotate(-2deg); }
+  .card:nth-child(3) { transform: rotate(1deg); }
+  .card:nth-child(4) { transform: rotate(3deg); }
+  .card:nth-child(5) { transform: rotate(5deg); }
+
+  .card:hover {
+    transform: scale(1.05) rotate(0deg);
+    z-index: 10;
+  }
+}
+
 </style>
